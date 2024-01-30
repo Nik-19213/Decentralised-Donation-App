@@ -92,7 +92,7 @@ function App() {
       <p>Connected Account - {account}</p>
       <div className="App">
         <p>Contract Address - {contractAddress}</p>
-        <p>Total Collected Amount - {loading ? "Loading.." : totalDonation} ETH</p>
+        <p>Total Donation Collected - {loading ? "Loading.." : totalDonation} ETH</p>
         <div>
           <DonateEth state={state} updateMemos={updateMemos}/>
           <Memos memos={memos} isLoading={loading}/>
