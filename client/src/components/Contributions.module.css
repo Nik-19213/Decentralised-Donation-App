@@ -1,7 +1,6 @@
 .contributions-container{
     border-radius: 12px;
     border: 2px solid rgba(255, 179, 11, 1);
-
     padding: 1rem;
     margin: 4rem 1rem;
     min-height: 500px;
@@ -24,9 +23,20 @@
     text-align: left;
 
     padding: 0.5rem;
+    width: auto;
+    word-wrap: break-word;
 }
 
 .table{
     width: 100%;
+    table-layout: fixed;
     padding: 1rem;
+}
+
+.message{
+    width: 20rem;
+}
+
+.from{
+    width: 23rem;
 }

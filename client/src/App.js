@@ -20,7 +20,9 @@ function App() {
   const [account, setAccount] = useState(null)
   const [isConnected, setIsConnected] = useState(false);
   const [totalDonation, setTotalDonation] = useState(0);
-  const contractAddress = "0x1bB090d737A412d6703d702E1891808058a3e930";
+  const [accountBalance, setAccountBalance] = useState(0);
+
+  const contractAddress = "0x8E21f621F1Be188D3b2144CEDAd35889b27e5dB2";
 
   const connectWallet = async () => {
     const contractABI = abi.abi;
@@ -42,15 +44,11 @@ function App() {
 
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        const contract = new ethers.Contract(
-          contractAddress,
-          contractABI,
-          signer
-        );
+        const contract = new ethers.Contract(contractAddress,contractABI,signer);
 
         setState({ provider, signer, contract });
         setAccount(accounts[0]);
-        setIsConnected(true); 
+        setIsConnected(true);
       } else {
         alert("Please install MetaMask");
       }
@@ -67,9 +65,11 @@ function App() {
     );
     const icoContract = new ethers.Contract(contractAddress, abi.abi, provider);
 
-    const totalDonationCollected =
-      await icoContract.getTotalDonationCollected();
+    const totalDonationCollected = await icoContract.getTotalDonationCollected();
     setTotalDonation(ethers.utils.formatEther(totalDonationCollected));
+
+    const accountBalance = await icoContract.getAccountBalance();
+    setAccountBalance(ethers.utils.formatEther(accountBalance));
 
     const memos = await icoContract.getMemos();
     setMemos(memos);
@@ -92,9 +92,18 @@ function App() {
     const totalDonationCollected = await state.contract.getTotalDonationCollected();
     setTotalDonation(ethers.utils.formatEther(totalDonationCollected));
   }
+  const updateAccountBalance = async () => {
+    if (!state.contract) {
+      return;
+    }
+
+    const accountBalance = await state.contract.getAccountBalance();
+    setAccountBalance(ethers.utils.formatEther(accountBalance));
+
+  }
 
   const updateState = async () => {
-    await Promise.all([updateMemos(), updateTotalDonation()]);
+    await Promise.all([updateMemos(), updateTotalDonation(), updateAccountBalance()]);
   }
 
   useEffect(() => {
@@ -103,7 +112,7 @@ function App() {
 
   return (
     <>
-      <Header donation={totalDonation} loading={loading} contractAddress={contractAddress}/>
+      <Header donation={totalDonation} balance={accountBalance} loading={loading} contractAddress={contractAddress} />
       <Landing
         state={state}
         updateState={updateState}

@@ -2,7 +2,7 @@ import style from "./header.module.css";
 
 import Loader from "./Loader";
 
-export default function Header({ donation, loading, contractAddress }) {
+export default function Header({ donation, balance, loading, contractAddress }) {
   return (
     <div className={style.header}>
       <svg
@@ -26,19 +26,26 @@ export default function Header({ donation, loading, contractAddress }) {
         ></path>
       </svg>
 
-      <h1>Donations App</h1>
+      <h1 className={style.logo}>Donation App</h1>
       <div className={style.leading}>
-          <a
-            className={style.contract}
-            href="https://sepolia.etherscan.io/address/0x1bB090d737A412d6703d702E1891808058a3e930"
-            target="blank_"
-          >
-            Contract Address :- {contractAddress}
-          </a>
-        <div className={style.collections}>
-          Total Collection :{" "}
-          <span>{!loading ? `${donation} ETH` : <Loader />} </span>
+        <a
+          className={style.contract}
+          href={`https://sepolia.etherscan.io/address/${contractAddress}`}
+          target="blank_"
+        >
+          Contract Address :- {contractAddress}
+        </a>
+        <div className={style.numbers}>
+          <div className={style.collections}>
+            Total Collection :{" "}
+            <span>{!loading ? `${donation} ETH` : <Loader />} </span>
+          </div>
+          <div className={style.collections}>
+            Account Balance :{" "}
+            <span>{!loading ? `${(+balance).toFixed(4)} ETH` : <Loader />} </span>
+          </div>
         </div>
+
       </div>
     </div>
   );

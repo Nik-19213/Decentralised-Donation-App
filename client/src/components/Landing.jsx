@@ -52,10 +52,9 @@ export default function Landing({updateState,isConnected, state, onConnect}) {
           <br />
           Do a <span>Donation.</span>
         </h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, ex?
-        Pariatur optio quaerat adipisci nesciunt odio nulla hic atque ab
-        similique? Minima facilis voluptates veritatis ipsum officia! Ad
-        repudiandae nostrum eum vitae, ratione atque obcaecati.
+        Join us in making a difference! Your donation can provide vital support to those in need. 
+        Together, we can bring hope and change lives. Every contribution counts. 
+        Please donate today and help us make a meaningful impact. Thank you for your generosity.
       </div>
       <div className={style["form-container"]}>
         {!isConnected ? (

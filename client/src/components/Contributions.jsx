@@ -12,9 +12,9 @@ export default function Contributions({ memos, loading }) {
           <thead>
             <tr>
               <th>Name</th>
-              <th>Message</th>
-              <th>Time Stamo</th>
-              <th>From</th>
+              <th className={style.message}>Message</th>
+              <th>Time Stamp</th>
+              <th  className={style.from}>From</th>
               <th>Amount</th>
             </tr>
           </thead>
@@ -22,9 +22,9 @@ export default function Contributions({ memos, loading }) {
             {memos.slice().reverse().map((memo, i) => (
               <tr key={i}>
                 <td>{memo.name}</td>
-                <td>{memo.message}</td>
+                <td className={style.message}> {memo.message}</td>
                 <td>{new Date(memo.timestamp * 1000).toLocaleString()}</td>
-                <td>{memo.from}</td>
+                <td className={style.from}>{memo.from}</td>
                 <td>{ethers.utils.formatUnits(memo.amount)} ETH</td>
               </tr>
             ))}

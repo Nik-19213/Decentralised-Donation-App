@@ -32,4 +32,9 @@ contract donation {
     function getTotalDonationCollected() public view returns (uint256) {
         return total;
     }
+
+    function getAccountBalance() public view returns (uint256){
+        return owner.balance;
+    }
+    
 }
