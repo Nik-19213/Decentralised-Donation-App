@@ -16,4 +16,4 @@ npx create-react-app client
 
 npm install dotenv
 
-npm hardhat run --network goerli scripts/finalDeploy.js
+npx hardhat run --network sepolia scripts/finalDeploy.js

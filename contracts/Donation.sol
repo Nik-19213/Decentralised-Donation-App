@@ -11,6 +11,7 @@ contract donation {
     }
 
     Memo[] memos;
+    uint256 total = 0;
     address payable owner;
 
     constructor() {
@@ -21,6 +22,7 @@ contract donation {
         require(msg.value > 0, "Please pay greater than 0 ether");
         owner.transfer(msg.value);
         memos.push(Memo(name, message, block.timestamp, msg.sender, msg.value));
+        total = total + msg.value;
     }
 
     function getMemos() public view returns (Memo[] memory){
@@ -28,6 +30,11 @@ contract donation {
     }
 
     function getTotalDonationCollected() public view returns (uint256) {
+        return total;
+    }
+
+    function getAccountBalance() public view returns (uint256){
         return owner.balance;
     }
+    
 }
