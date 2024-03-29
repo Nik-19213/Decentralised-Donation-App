@@ -15,8 +15,8 @@ export default function Header({ donation, loading, contractAddress }) {
       >
         <defs>
           <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
-            <stop stopColor="rgba(243, 106, 62, 1)" offset="0%"></stop>
-            <stop stopColor="rgba(255, 179, 11, 1)" offset="100%"></stop>
+            <stop stopColor="var(--primary)" offset="0%"></stop>
+            <stop stopColor="var(--secondary)" offset="100%"></stop>
           </linearGradient>
         </defs>
         <path

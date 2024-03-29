@@ -1,6 +1,6 @@
 .contributions-container{
     border-radius: 12px;
-    border: 2px solid rgba(255, 179, 11, 1);
+    border: 2px solid var(--primary);
 
     padding: 1rem;
     margin: 4rem 1rem;
@@ -8,9 +8,9 @@
 }
 
 .heading{
-    background : linear-gradient(rgba(255, 179, 11, 1), rgba(243, 106, 62, 1));
+    background : linear-gradient(var(--primary), var(--secondary));
     text-decoration: underline;
-    text-decoration-color: rgba(243, 106, 62, 1);
+    text-decoration-color: var(--primary);
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 1000;
@@ -19,7 +19,7 @@
 }
 
 .table, th, td{
-    border: 1px solid rgba(243, 106, 62, 1) ;
+    border: 1px solid var(--primary);
     border-collapse: collapse;
     text-align: left;
 
