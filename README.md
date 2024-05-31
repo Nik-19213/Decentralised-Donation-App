@@ -64,8 +64,26 @@ Deploy the smart contracts on the Sepolia test network:
 npx hardhat run --network sepolia scripts/finalDeploy.js
 ```
 
+### Run React Application
+```bash
+cd client
+npm start
+```        
+
 ## Usage
 
 1.  Open your browser and connect your Metamask wallet to the Sepolia network.
 2.  Navigate to the DDApp frontend.
 3.  Use the interface to donate and view donation details.
+
+## Contributing
+
+Contributions are welcome! Please fork this repository and submit pull requests for any features, improvements, or bug fixes.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgements
+
+Special thanks to all the contributors and the Ethereum community for their support and inspiration.
