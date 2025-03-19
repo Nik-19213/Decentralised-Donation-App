@@ -2,7 +2,7 @@
 
 The Decentralized Donation App (DDApp) is a blockchain-based application developed to revolutionize the traditional donation process. By leveraging smart contracts written in Solidity and deployed on the Ethereum blockchain, DDApp ensures complete transparency and traceability of donations. Users can securely donate, track their contributions, and access detailed information about all donations made within the platform.
 
-![screenshot](Screenshot (394).png)
+![screenshot](Screenshot.png)
 
 ## Features
 
